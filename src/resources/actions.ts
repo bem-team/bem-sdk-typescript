@@ -1,33 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
+import { APIResource } from '../core/resource';
 import * as ActionsAPI from './actions';
 import * as ActionTypeConfigsAPI from './action-type-configs';
-import * as TransformationsAPI from '../beta/transformations';
-import { APIPromise } from '../../core/api-promise';
-import { buildHeaders } from '../../internal/headers';
-import { RequestOptions } from '../../internal/request-options';
-import { maybeMultipartFormRequestOptions } from '../../internal/uploads';
+import * as TransformationsAPI from './transformations';
+import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
+import { maybeMultipartFormRequestOptions } from '../internal/uploads';
 
 export class Actions extends APIResource {
   /**
    * Create a batch of Actions
-   *
-   * @example
-   * ```ts
-   * const getActionsResponse =
-   *   await client.alpha.actions.create({
-   *     actions: [
-   *       {
-   *         referenceID: 'referenceID',
-   *         inputContent: 'U3RhaW5sZXNzIHJvY2tz',
-   *         inputType: 'email',
-   *       },
-   *     ],
-   *     actionType: 'transform',
-   *     actionTypeConfigID: 'actionTypeConfigID',
-   *   });
-   * ```
    */
   create(body: ActionCreateParams, options?: RequestOptions): APIPromise<GetActionsResponse> {
     return this._client.post(
@@ -38,12 +22,6 @@ export class Actions extends APIResource {
 
   /**
    * List Actions
-   *
-   * @example
-   * ```ts
-   * const getActionsResponse =
-   *   await client.alpha.actions.list();
-   * ```
    */
   list(
     query: ActionListParams | null | undefined = {},
@@ -54,11 +32,6 @@ export class Actions extends APIResource {
 
   /**
    * Updates a route event with feedback on the desired router choices.
-   *
-   * @example
-   * ```ts
-   * await client.alpha.actions.correctRoute();
-   * ```
    */
   correctRoute(body: ActionCorrectRouteParams, options?: RequestOptions): APIPromise<void> {
     return this._client.patch('/v1-alpha/actions/route', {

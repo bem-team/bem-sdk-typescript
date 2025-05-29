@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
-import * as ActionTypeConfigsAPI from '../alpha/action-type-configs';
-import { APIPromise } from '../../core/api-promise';
-import { buildHeaders } from '../../internal/headers';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIResource } from '../core/resource';
+import * as ActionTypeConfigsAPI from './action-type-configs';
+import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Pipelines extends APIResource {
   /**
@@ -15,7 +15,7 @@ export class Pipelines extends APIResource {
    *
    * @example
    * ```ts
-   * const pipeline = await client.beta.pipelines.create({
+   * const pipeline = await client.pipelines.create({
    *   name: 'Freight Load Pipeline',
    *   outputSchema: {
    *     value: {
@@ -114,7 +114,7 @@ export class Pipelines extends APIResource {
    *
    * @example
    * ```ts
-   * const pipeline = await client.beta.pipelines.retrieve(
+   * const pipeline = await client.pipelines.retrieve(
    *   'pipelineID',
    * );
    * ```
@@ -129,7 +129,7 @@ export class Pipelines extends APIResource {
    *
    * @example
    * ```ts
-   * const pipeline = await client.beta.pipelines.update(
+   * const pipeline = await client.pipelines.update(
    *   'pipelineID',
    * );
    * ```
@@ -143,7 +143,7 @@ export class Pipelines extends APIResource {
    *
    * @example
    * ```ts
-   * const pipelines = await client.beta.pipelines.list();
+   * const pipelines = await client.pipelines.list();
    * ```
    */
   list(
@@ -162,7 +162,7 @@ export class Pipelines extends APIResource {
    *
    * @example
    * ```ts
-   * await client.beta.pipelines.delete('pipelineID');
+   * await client.pipelines.delete('pipelineID');
    * ```
    */
   delete(pipelineID: string, options?: RequestOptions): APIPromise<void> {

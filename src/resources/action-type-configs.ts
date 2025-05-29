@@ -1,23 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
+import { APIResource } from '../core/resource';
 import * as ActionTypeConfigsAPI from './action-type-configs';
-import { APIPromise } from '../../core/api-promise';
-import { buildHeaders } from '../../internal/headers';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class ActionTypeConfigs extends APIResource {
   /**
    * Create an Action Type Config
-   *
-   * @example
-   * ```ts
-   * const actionTypeConfig =
-   *   await client.alpha.actionTypeConfigs.create({
-   *     body: { actionType: 'transform' },
-   *   });
-   * ```
    */
   create(params: ActionTypeConfigCreateParams, options?: RequestOptions): APIPromise<ActionTypeConfig> {
     const { body } = params;
@@ -26,14 +18,6 @@ export class ActionTypeConfigs extends APIResource {
 
   /**
    * Get an Action Type Config
-   *
-   * @example
-   * ```ts
-   * const actionTypeConfig =
-   *   await client.alpha.actionTypeConfigs.retrieve(
-   *     'actionTypeConfigID',
-   *   );
-   * ```
    */
   retrieve(actionTypeConfigID: string, options?: RequestOptions): APIPromise<ActionTypeConfig> {
     return this._client.get(path`/v1-alpha/action-type-configs/${actionTypeConfigID}`, options);
@@ -45,7 +29,7 @@ export class ActionTypeConfigs extends APIResource {
    * @example
    * ```ts
    * const actionTypeConfig =
-   *   await client.alpha.actionTypeConfigs.update(
+   *   await client.actionTypeConfigs.update(
    *     'actionTypeConfigID',
    *   );
    * ```
@@ -63,12 +47,6 @@ export class ActionTypeConfigs extends APIResource {
 
   /**
    * List Action Type Configs
-   *
-   * @example
-   * ```ts
-   * const actionTypeConfigs =
-   *   await client.alpha.actionTypeConfigs.list();
-   * ```
    */
   list(
     query: ActionTypeConfigListParams | null | undefined = {},
@@ -79,13 +57,6 @@ export class ActionTypeConfigs extends APIResource {
 
   /**
    * Delete an Action Type Config
-   *
-   * @example
-   * ```ts
-   * await client.alpha.actionTypeConfigs.delete(
-   *   'actionTypeConfigID',
-   * );
-   * ```
    */
   delete(actionTypeConfigID: string, options?: RequestOptions): APIPromise<void> {
     return this._client.delete(path`/v1-alpha/action-type-configs/${actionTypeConfigID}`, {

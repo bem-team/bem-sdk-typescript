@@ -1,18 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
-import { APIPromise } from '../../core/api-promise';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Tasks extends APIResource {
   /**
    * Get a Task
-   *
-   * @example
-   * ```ts
-   * const task = await client.alpha.tasks.retrieve('taskID');
-   * ```
    */
   retrieve(taskID: string, options?: RequestOptions): APIPromise<Task> {
     return this._client.get(path`/v1-alpha/tasks/${taskID}`, options);
@@ -20,11 +15,6 @@ export class Tasks extends APIResource {
 
   /**
    * List Tasks
-   *
-   * @example
-   * ```ts
-   * const tasks = await client.alpha.tasks.list();
-   * ```
    */
   list(
     query: TaskListParams | null | undefined = {},
