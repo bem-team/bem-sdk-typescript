@@ -7,13 +7,13 @@ const client = new BemSDK({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource subscriptions', () => {
+describe('resource actions', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
-    const responsePromise = client.alpha.subscriptions.create({
+    const responsePromise = client.actions.create({
+      actions: [{ referenceID: 'referenceID', inputContent: 'U3RhaW5sZXNzIHJvY2tz', inputType: 'email' }],
+      actionType: 'transform',
       actionTypeConfigID: 'actionTypeConfigID',
-      name: 'name',
-      type: 'transform',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -26,42 +26,16 @@ describe('resource subscriptions', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
-    const response = await client.alpha.subscriptions.create({
+    const response = await client.actions.create({
+      actions: [{ referenceID: 'referenceID', inputContent: 'U3RhaW5sZXNzIHJvY2tz', inputType: 'email' }],
+      actionType: 'transform',
       actionTypeConfigID: 'actionTypeConfigID',
-      name: 'name',
-      type: 'transform',
-      disabled: true,
-      webhookURL: 'https://bem-example.ai/test/url',
     });
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('retrieve', async () => {
-    const responsePromise = client.alpha.subscriptions.retrieve('subscriptionID');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('update', async () => {
-    const responsePromise = client.alpha.subscriptions.update('subscriptionID', {});
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
   test.skip('list', async () => {
-    const responsePromise = client.alpha.subscriptions.list();
+    const responsePromise = client.actions.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -75,16 +49,24 @@ describe('resource subscriptions', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.alpha.subscriptions.list(
-        { endingBefore: 'endingBefore', limit: 1, sortOrder: 'asc', startingAfter: 'startingAfter' },
+      client.actions.list(
+        {
+          actionIDs: ['string'],
+          actionType: 'transform',
+          actionTypeConfigIDs: ['string'],
+          endingBefore: 'endingBefore',
+          limit: 1,
+          sortOrder: 'asc',
+          startingAfter: 'startingAfter',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(BemSDK.NotFoundError);
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('delete', async () => {
-    const responsePromise = client.alpha.subscriptions.delete('subscriptionID');
+  test.skip('correctRoute', async () => {
+    const responsePromise = client.actions.correctRoute({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

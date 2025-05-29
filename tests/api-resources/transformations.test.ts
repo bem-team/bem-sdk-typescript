@@ -10,7 +10,7 @@ const client = new BemSDK({
 describe('resource transformations', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
-    const responsePromise = client.beta.transformations.create({
+    const responsePromise = client.transformations.create({
       pipelineID: 'pl_2c9AXIj48cUYJtCuv1gsQtHGDzK',
       transformations: [
         { inputContent: 'U3RhaW5sZXNzIHJvY2tz', inputType: 'email', referenceID: 'referenceID' },
@@ -27,7 +27,7 @@ describe('resource transformations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
-    const response = await client.beta.transformations.create({
+    const response = await client.transformations.create({
       pipelineID: 'pl_2c9AXIj48cUYJtCuv1gsQtHGDzK',
       transformations: [
         { inputContent: 'U3RhaW5sZXNzIHJvY2tz', inputType: 'email', referenceID: 'referenceID' },
@@ -37,7 +37,7 @@ describe('resource transformations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('update', async () => {
-    const responsePromise = client.beta.transformations.update({});
+    const responsePromise = client.transformations.update({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -49,7 +49,7 @@ describe('resource transformations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('list', async () => {
-    const responsePromise = client.beta.transformations.list();
+    const responsePromise = client.transformations.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -63,7 +63,7 @@ describe('resource transformations', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.beta.transformations.list(
+      client.transformations.list(
         {
           endingBefore: 'endingBefore',
           itemOffset: 0,
@@ -84,7 +84,7 @@ describe('resource transformations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('delete', async () => {
-    const responsePromise = client.beta.transformations.delete();
+    const responsePromise = client.transformations.delete();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -98,7 +98,7 @@ describe('resource transformations', () => {
   test.skip('delete: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.beta.transformations.delete(
+      client.transformations.delete(
         { pipelineID: 'pipelineID', referenceIDs: ['string'], transformationIDs: ['string'] },
         { path: '/_stainless_unknown_path' },
       ),
@@ -107,7 +107,7 @@ describe('resource transformations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('deprecatedUpdate', async () => {
-    const responsePromise = client.beta.transformations.deprecatedUpdate({});
+    const responsePromise = client.transformations.deprecatedUpdate({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -119,7 +119,7 @@ describe('resource transformations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('listErrors: only required params', async () => {
-    const responsePromise = client.beta.transformations.listErrors({ referenceIDs: ['string'] });
+    const responsePromise = client.transformations.listErrors({ referenceIDs: ['string'] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -131,7 +131,7 @@ describe('resource transformations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('listErrors: required and optional params', async () => {
-    const response = await client.beta.transformations.listErrors({
+    const response = await client.transformations.listErrors({
       referenceIDs: ['string'],
       endingBefore: 'endingBefore',
       limit: 1,

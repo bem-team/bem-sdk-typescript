@@ -7,14 +7,10 @@ const client = new BemSDK({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource actions', () => {
+describe('resource actionTypeConfigs', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
-    const responsePromise = client.alpha.actions.create({
-      actions: [{ referenceID: 'referenceID', inputContent: 'U3RhaW5sZXNzIHJvY2tz', inputType: 'email' }],
-      actionType: 'transform',
-      actionTypeConfigID: 'actionTypeConfigID',
-    });
+    const responsePromise = client.actionTypeConfigs.create({ body: { actionType: 'transform' } });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -26,16 +22,36 @@ describe('resource actions', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
-    const response = await client.alpha.actions.create({
-      actions: [{ referenceID: 'referenceID', inputContent: 'U3RhaW5sZXNzIHJvY2tz', inputType: 'email' }],
-      actionType: 'transform',
-      actionTypeConfigID: 'actionTypeConfigID',
-    });
+    const response = await client.actionTypeConfigs.create({ body: { actionType: 'transform' } });
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('retrieve', async () => {
+    const responsePromise = client.actionTypeConfigs.retrieve('actionTypeConfigID');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('update', async () => {
+    const responsePromise = client.actionTypeConfigs.update('actionTypeConfigID', {});
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
   });
 
   // skipped: tests are disabled for the time being
   test.skip('list', async () => {
-    const responsePromise = client.alpha.actions.list();
+    const responsePromise = client.actionTypeConfigs.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -49,9 +65,8 @@ describe('resource actions', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.alpha.actions.list(
+      client.actionTypeConfigs.list(
         {
-          actionIDs: ['string'],
           actionType: 'transform',
           actionTypeConfigIDs: ['string'],
           endingBefore: 'endingBefore',
@@ -65,8 +80,8 @@ describe('resource actions', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('correctRoute', async () => {
-    const responsePromise = client.alpha.actions.correctRoute({});
+  test.skip('delete', async () => {
+    const responsePromise = client.actionTypeConfigs.delete('actionTypeConfigID');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

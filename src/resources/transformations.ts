@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
+import { APIResource } from '../core/resource';
 import * as TransformationsAPI from './transformations';
-import { APIPromise } from '../../core/api-promise';
-import { RequestOptions } from '../../internal/request-options';
-import { maybeMultipartFormRequestOptions } from '../../internal/uploads';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
+import { maybeMultipartFormRequestOptions } from '../internal/uploads';
 
 export class Transformations extends APIResource {
   /**
@@ -14,17 +14,16 @@ export class Transformations extends APIResource {
    *
    * @example
    * ```ts
-   * const transformation =
-   *   await client.beta.transformations.create({
-   *     pipelineID: 'pl_2c9AXIj48cUYJtCuv1gsQtHGDzK',
-   *     transformations: [
-   *       {
-   *         inputContent: 'U3RhaW5sZXNzIHJvY2tz',
-   *         inputType: 'email',
-   *         referenceID: 'referenceID',
-   *       },
-   *     ],
-   *   });
+   * const transformation = await client.transformations.create({
+   *   pipelineID: 'pl_2c9AXIj48cUYJtCuv1gsQtHGDzK',
+   *   transformations: [
+   *     {
+   *       inputContent: 'U3RhaW5sZXNzIHJvY2tz',
+   *       inputType: 'email',
+   *       referenceID: 'referenceID',
+   *     },
+   *   ],
+   * });
    * ```
    */
   create(
@@ -43,7 +42,7 @@ export class Transformations extends APIResource {
    * @example
    * ```ts
    * const updateTransformationResponse =
-   *   await client.beta.transformations.update();
+   *   await client.transformations.update();
    * ```
    */
   update(
@@ -59,8 +58,7 @@ export class Transformations extends APIResource {
    *
    * @example
    * ```ts
-   * const transformations =
-   *   await client.beta.transformations.list();
+   * const transformations = await client.transformations.list();
    * ```
    */
   list(
@@ -77,7 +75,7 @@ export class Transformations extends APIResource {
    * @example
    * ```ts
    * const transformation =
-   *   await client.beta.transformations.delete();
+   *   await client.transformations.delete();
    * ```
    */
   delete(
@@ -110,10 +108,9 @@ export class Transformations extends APIResource {
    *
    * @example
    * ```ts
-   * const response =
-   *   await client.beta.transformations.listErrors({
-   *     referenceIDs: ['string'],
-   *   });
+   * const response = await client.transformations.listErrors({
+   *   referenceIDs: ['string'],
+   * });
    * ```
    */
   listErrors(

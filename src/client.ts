@@ -21,11 +21,80 @@ import { APIPromise } from './core/api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
+import {
+  ActionType,
+  ActionTypeConfig,
+  ActionTypeConfigBase,
+  ActionTypeConfigCreateBase,
+  ActionTypeConfigCreateParams,
+  ActionTypeConfigListParams,
+  ActionTypeConfigListResponse,
+  ActionTypeConfigUpdateParams,
+  ActionTypeConfigUpsertBase,
+  ActionTypeConfigs,
+  RouteListItem,
+  SplitConfigSemanticPageItemClass,
+  UpsertEmailConfig,
+  UpsertJoinConfig,
+  UpsertRouteConfig,
+  UpsertSplitConfig,
+  UpsertTransformConfig,
+} from './resources/action-type-configs';
+import {
+  ActionBase,
+  ActionCorrectRouteParams,
+  ActionCreateBase,
+  ActionCreateParams,
+  ActionListParams,
+  Actions,
+  CreateActionBase,
+  EmailActionBase,
+  GetActionsResponse,
+  JoinActionBase,
+  RouteActionBase,
+  SplitActionBase,
+  TransformActionBase,
+} from './resources/actions';
+import { Event, EventBase, EventListParams, EventListResponse, Events } from './resources/events';
+import {
+  Pipeline,
+  PipelineCreateParams,
+  PipelineListParams,
+  PipelineListResponse,
+  PipelineRetrieveResponse,
+  PipelineUpdateParams,
+  Pipelines,
+} from './resources/pipelines';
+import {
+  Subscription,
+  SubscriptionCreateParams,
+  SubscriptionListParams,
+  SubscriptionListResponse,
+  SubscriptionUpdateParams,
+  Subscriptions,
+} from './resources/subscriptions';
+import { Task, TaskListParams, TaskListResponse, TaskStatus, Tasks } from './resources/tasks';
+import {
+  AnyType,
+  InputType,
+  TransformationCreateParams,
+  TransformationCreateResponse,
+  TransformationDeleteParams,
+  TransformationDeleteResponse,
+  TransformationDeprecatedUpdateParams,
+  TransformationListErrorsParams,
+  TransformationListErrorsResponse,
+  TransformationListParams,
+  TransformationListResponse,
+  TransformationUpdateParams,
+  Transformations,
+  UpdateTransformation,
+  UpdateTransformationResponse,
+} from './resources/transformations';
+import { WebhookSecret, WebhookSecretResource } from './resources/webhook-secret';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
-import { Alpha } from './resources/alpha/alpha';
-import { Beta } from './resources/beta/beta';
 
 const environments = {
   production: 'https://api.bem.ai',
@@ -701,15 +770,114 @@ export class BemSDK {
 
   static toFile = Uploads.toFile;
 
-  alpha: API.Alpha = new API.Alpha(this);
-  beta: API.Beta = new API.Beta(this);
+  actionTypeConfigs: API.ActionTypeConfigs = new API.ActionTypeConfigs(this);
+  actions: API.Actions = new API.Actions(this);
+  events: API.Events = new API.Events(this);
+  tasks: API.Tasks = new API.Tasks(this);
+  subscriptions: API.Subscriptions = new API.Subscriptions(this);
+  pipelines: API.Pipelines = new API.Pipelines(this);
+  transformations: API.Transformations = new API.Transformations(this);
+  webhookSecret: API.WebhookSecretResource = new API.WebhookSecretResource(this);
 }
-BemSDK.Alpha = Alpha;
-BemSDK.Beta = Beta;
+BemSDK.ActionTypeConfigs = ActionTypeConfigs;
+BemSDK.Actions = Actions;
+BemSDK.Events = Events;
+BemSDK.Tasks = Tasks;
+BemSDK.Subscriptions = Subscriptions;
+BemSDK.Pipelines = Pipelines;
+BemSDK.Transformations = Transformations;
+BemSDK.WebhookSecretResource = WebhookSecretResource;
 export declare namespace BemSDK {
   export type RequestOptions = Opts.RequestOptions;
 
-  export { Alpha as Alpha };
+  export {
+    ActionTypeConfigs as ActionTypeConfigs,
+    type ActionType as ActionType,
+    type ActionTypeConfig as ActionTypeConfig,
+    type ActionTypeConfigBase as ActionTypeConfigBase,
+    type ActionTypeConfigCreateBase as ActionTypeConfigCreateBase,
+    type ActionTypeConfigUpsertBase as ActionTypeConfigUpsertBase,
+    type RouteListItem as RouteListItem,
+    type SplitConfigSemanticPageItemClass as SplitConfigSemanticPageItemClass,
+    type UpsertEmailConfig as UpsertEmailConfig,
+    type UpsertJoinConfig as UpsertJoinConfig,
+    type UpsertRouteConfig as UpsertRouteConfig,
+    type UpsertSplitConfig as UpsertSplitConfig,
+    type UpsertTransformConfig as UpsertTransformConfig,
+    type ActionTypeConfigListResponse as ActionTypeConfigListResponse,
+    type ActionTypeConfigCreateParams as ActionTypeConfigCreateParams,
+    type ActionTypeConfigUpdateParams as ActionTypeConfigUpdateParams,
+    type ActionTypeConfigListParams as ActionTypeConfigListParams,
+  };
 
-  export { Beta as Beta };
+  export {
+    Actions as Actions,
+    type ActionBase as ActionBase,
+    type ActionCreateBase as ActionCreateBase,
+    type CreateActionBase as CreateActionBase,
+    type EmailActionBase as EmailActionBase,
+    type GetActionsResponse as GetActionsResponse,
+    type JoinActionBase as JoinActionBase,
+    type RouteActionBase as RouteActionBase,
+    type SplitActionBase as SplitActionBase,
+    type TransformActionBase as TransformActionBase,
+    type ActionCreateParams as ActionCreateParams,
+    type ActionListParams as ActionListParams,
+    type ActionCorrectRouteParams as ActionCorrectRouteParams,
+  };
+
+  export {
+    Events as Events,
+    type Event as Event,
+    type EventBase as EventBase,
+    type EventListResponse as EventListResponse,
+    type EventListParams as EventListParams,
+  };
+
+  export {
+    Tasks as Tasks,
+    type Task as Task,
+    type TaskStatus as TaskStatus,
+    type TaskListResponse as TaskListResponse,
+    type TaskListParams as TaskListParams,
+  };
+
+  export {
+    Subscriptions as Subscriptions,
+    type Subscription as Subscription,
+    type SubscriptionListResponse as SubscriptionListResponse,
+    type SubscriptionCreateParams as SubscriptionCreateParams,
+    type SubscriptionUpdateParams as SubscriptionUpdateParams,
+    type SubscriptionListParams as SubscriptionListParams,
+  };
+
+  export {
+    Pipelines as Pipelines,
+    type Pipeline as Pipeline,
+    type PipelineRetrieveResponse as PipelineRetrieveResponse,
+    type PipelineListResponse as PipelineListResponse,
+    type PipelineCreateParams as PipelineCreateParams,
+    type PipelineUpdateParams as PipelineUpdateParams,
+    type PipelineListParams as PipelineListParams,
+  };
+
+  export {
+    Transformations as Transformations,
+    type AnyType as AnyType,
+    type InputType as InputType,
+    type UpdateTransformation as UpdateTransformation,
+    type UpdateTransformationResponse as UpdateTransformationResponse,
+    type TransformationCreateResponse as TransformationCreateResponse,
+    type TransformationListResponse as TransformationListResponse,
+    type TransformationDeleteResponse as TransformationDeleteResponse,
+    type TransformationListErrorsResponse as TransformationListErrorsResponse,
+    type TransformationCreateParams as TransformationCreateParams,
+    type TransformationUpdateParams as TransformationUpdateParams,
+    type TransformationListParams as TransformationListParams,
+    type TransformationDeleteParams as TransformationDeleteParams,
+    type TransformationDeprecatedUpdateParams as TransformationDeprecatedUpdateParams,
+    type TransformationListErrorsParams as TransformationListErrorsParams,
+  };
+
+  export { WebhookSecretResource as WebhookSecretResource, type WebhookSecret as WebhookSecret };
 }
