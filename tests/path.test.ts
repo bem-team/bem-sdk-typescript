@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'bem-sdk/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from 'bem/internal/utils/path';
 import { inspect } from 'node:util';
 
 describe('path template tag function', () => {

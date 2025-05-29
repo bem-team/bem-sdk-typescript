@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "bem-sdk/*": ["dist/src/*"],
-      "bem-sdk": ["dist/src/index.ts"]
+      "bem/*": ["dist/src/*"],
+      "bem": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,

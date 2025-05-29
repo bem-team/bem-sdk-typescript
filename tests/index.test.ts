@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'bem-sdk/core/api-promise';
+import { APIPromise } from 'bem/core/api-promise';
 
 import util from 'node:util';
-import BemSDK from 'bem-sdk';
-import { APIUserAbortError } from 'bem-sdk';
+import BemSDK from 'bem';
+import { APIUserAbortError } from 'bem';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
