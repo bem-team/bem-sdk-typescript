@@ -1,6 +1,6 @@
 {
   "name": "bem",
-  "version": "0.1.0-alpha.1",
+  "version": "3.0.0",
   "description": "The official TypeScript library for the Bem SDK API",
   "author": "Bem SDK <>",
   "types": "dist/index.d.ts",
