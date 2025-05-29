@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
-import { APIPromise } from '../../core/api-promise';
-import { buildHeaders } from '../../internal/headers';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Subscriptions extends APIResource {
   /**
@@ -12,12 +12,11 @@ export class Subscriptions extends APIResource {
    *
    * @example
    * ```ts
-   * const subscription =
-   *   await client.alpha.subscriptions.create({
-   *     actionTypeConfigID: 'actionTypeConfigID',
-   *     name: 'name',
-   *     type: 'transform',
-   *   });
+   * const subscription = await client.subscriptions.create({
+   *   actionTypeConfigID: 'actionTypeConfigID',
+   *   name: 'name',
+   *   type: 'transform',
+   * });
    * ```
    */
   create(body: SubscriptionCreateParams, options?: RequestOptions): APIPromise<Subscription> {
@@ -29,10 +28,9 @@ export class Subscriptions extends APIResource {
    *
    * @example
    * ```ts
-   * const subscription =
-   *   await client.alpha.subscriptions.retrieve(
-   *     'subscriptionID',
-   *   );
+   * const subscription = await client.subscriptions.retrieve(
+   *   'subscriptionID',
+   * );
    * ```
    */
   retrieve(subscriptionID: string, options?: RequestOptions): APIPromise<Subscription> {
@@ -45,8 +43,9 @@ export class Subscriptions extends APIResource {
    *
    * @example
    * ```ts
-   * const subscription =
-   *   await client.alpha.subscriptions.update('subscriptionID');
+   * const subscription = await client.subscriptions.update(
+   *   'subscriptionID',
+   * );
    * ```
    */
   update(
@@ -62,8 +61,7 @@ export class Subscriptions extends APIResource {
    *
    * @example
    * ```ts
-   * const subscriptions =
-   *   await client.alpha.subscriptions.list();
+   * const subscriptions = await client.subscriptions.list();
    * ```
    */
   list(
@@ -78,7 +76,7 @@ export class Subscriptions extends APIResource {
    *
    * @example
    * ```ts
-   * await client.alpha.subscriptions.delete('subscriptionID');
+   * await client.subscriptions.delete('subscriptionID');
    * ```
    */
   delete(subscriptionID: string, options?: RequestOptions): APIPromise<void> {

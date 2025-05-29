@@ -28,7 +28,7 @@ const client = new BemSDK({
 });
 
 async function main() {
-  const actionTypeConfig = await client.alpha.actionTypeConfigs.create({ body: { actionType: 'transform' } });
+  const actionTypeConfig = await client.actionTypeConfigs.create({ body: { actionType: 'transform' } });
 }
 
 main();
@@ -48,8 +48,8 @@ const client = new BemSDK({
 });
 
 async function main() {
-  const params: BemSDK.Alpha.ActionTypeConfigCreateParams = { body: { actionType: 'transform' } };
-  const actionTypeConfig: BemSDK.Alpha.ActionTypeConfig = await client.alpha.actionTypeConfigs.create(params);
+  const params: BemSDK.ActionTypeConfigCreateParams = { body: { actionType: 'transform' } };
+  const actionTypeConfig: BemSDK.ActionTypeConfig = await client.actionTypeConfigs.create(params);
 }
 
 main();
@@ -66,7 +66,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const actionTypeConfig = await client.alpha.actionTypeConfigs
+  const actionTypeConfig = await client.actionTypeConfigs
     .create({ body: { actionType: 'transform' } })
     .catch(async (err) => {
       if (err instanceof BemSDK.APIError) {
@@ -111,7 +111,7 @@ const client = new BemSDK({
 });
 
 // Or, configure per-request:
-await client.alpha.actionTypeConfigs.create({ body: { actionType: 'transform' } }, {
+await client.actionTypeConfigs.create({ body: { actionType: 'transform' } }, {
   maxRetries: 5,
 });
 ```
@@ -128,7 +128,7 @@ const client = new BemSDK({
 });
 
 // Override per-request:
-await client.alpha.actionTypeConfigs.create({ body: { actionType: 'transform' } }, {
+await client.actionTypeConfigs.create({ body: { actionType: 'transform' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -151,13 +151,11 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new BemSDK();
 
-const response = await client.alpha.actionTypeConfigs
-  .create({ body: { actionType: 'transform' } })
-  .asResponse();
+const response = await client.actionTypeConfigs.create({ body: { actionType: 'transform' } }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: actionTypeConfig, response: raw } = await client.alpha.actionTypeConfigs
+const { data: actionTypeConfig, response: raw } = await client.actionTypeConfigs
   .create({ body: { actionType: 'transform' } })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));

@@ -1,19 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
+import { APIResource } from '../core/resource';
 import * as EventsAPI from './events';
-import { APIPromise } from '../../core/api-promise';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Events extends APIResource {
   /**
    * Get an Event
-   *
-   * @example
-   * ```ts
-   * const event = await client.alpha.events.retrieve('eventID');
-   * ```
    */
   retrieve(eventID: string, options?: RequestOptions): APIPromise<Event> {
     return this._client.get(path`/v1-alpha/events/${eventID}`, options);
@@ -21,11 +16,6 @@ export class Events extends APIResource {
 
   /**
    * List Events
-   *
-   * @example
-   * ```ts
-   * const events = await client.alpha.events.list();
-   * ```
    */
   list(
     query: EventListParams | null | undefined = {},

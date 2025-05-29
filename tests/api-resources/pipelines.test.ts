@@ -10,7 +10,7 @@ const client = new BemSDK({
 describe('resource pipelines', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
-    const responsePromise = client.beta.pipelines.create({
+    const responsePromise = client.pipelines.create({
       name: 'Freight Load Pipeline',
       outputSchema: {
         value: {
@@ -88,7 +88,7 @@ describe('resource pipelines', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
-    const response = await client.beta.pipelines.create({
+    const response = await client.pipelines.create({
       name: 'Freight Load Pipeline',
       outputSchema: {
         value: {
@@ -238,7 +238,7 @@ describe('resource pipelines', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('retrieve', async () => {
-    const responsePromise = client.beta.pipelines.retrieve('pipelineID');
+    const responsePromise = client.pipelines.retrieve('pipelineID');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -250,7 +250,7 @@ describe('resource pipelines', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('update', async () => {
-    const responsePromise = client.beta.pipelines.update('pipelineID', {});
+    const responsePromise = client.pipelines.update('pipelineID', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -262,7 +262,7 @@ describe('resource pipelines', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('list', async () => {
-    const responsePromise = client.beta.pipelines.list();
+    const responsePromise = client.pipelines.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -276,7 +276,7 @@ describe('resource pipelines', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.beta.pipelines.list(
+      client.pipelines.list(
         { endingBefore: 'endingBefore', limit: 1, startingAfter: 'startingAfter' },
         { path: '/_stainless_unknown_path' },
       ),
@@ -285,7 +285,7 @@ describe('resource pipelines', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('delete', async () => {
-    const responsePromise = client.beta.pipelines.delete('pipelineID');
+    const responsePromise = client.pipelines.delete('pipelineID');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
