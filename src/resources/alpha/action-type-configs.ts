@@ -47,18 +47,16 @@ export class ActionTypeConfigs extends APIResource {
    * const actionTypeConfig =
    *   await client.alpha.actionTypeConfigs.update(
    *     'actionTypeConfigID',
-   *     { body: {} },
    *   );
    * ```
    */
   update(
     actionTypeConfigID: string,
-    params: ActionTypeConfigUpdateParams,
+    body: ActionTypeConfigUpdateParams,
     options?: RequestOptions,
   ): APIPromise<ActionTypeConfig> {
-    const { body } = params;
     return this._client.patch(path`/v1-alpha/action-type-configs/${actionTypeConfigID}`, {
-      body: body,
+      body,
       ...options,
     });
   }
@@ -545,8 +543,147 @@ export declare namespace ActionTypeConfigCreateParams {
   }
 }
 
-export interface ActionTypeConfigUpdateParams {
-  body: unknown;
+export type ActionTypeConfigUpdateParams =
+  | ActionTypeConfigUpdateParams.UpsertTransformConfig
+  | ActionTypeConfigUpdateParams.UpsertRouteConfig
+  | ActionTypeConfigUpdateParams.UpsertSplitConfig
+  | ActionTypeConfigUpdateParams.UpsertJoinConfig
+  | ActionTypeConfigUpdateParams.UpsertEmailConfig;
+
+export declare namespace ActionTypeConfigUpdateParams {
+  export interface UpsertTransformConfig {
+    /**
+     * Whether complex tabular transforms are enabled on the pipeline. This enables the
+     * pipeline to parse CSVs with multiple tables in the same file, and to transpose
+     * CSVs that can't be parsed row-wise.
+     */
+    complexTabularTransformEnabled?: boolean;
+
+    /**
+     * Whether independent transformations is enabled. For PDFs sent through the
+     * pipeline, this enables independent transformations for each individual page. For
+     * CSVs, this enables transforming chunks of rows in the CSV.
+     */
+    independentDocumentProcessingEnabled?: boolean;
+
+    name?: string;
+
+    /**
+     * Unique identifier of action type config to run after transformation. Currently
+     * only email is supported.
+     */
+    nextActionTypeConfigID?: string;
+
+    /**
+     * Desired output structure defined in standard JSON Schema convention.
+     */
+    outputSchema?: unknown;
+
+    /**
+     * Name of output schema object.
+     */
+    outputSchemaName?: string;
+  }
+
+  export interface UpsertRouteConfig {
+    /**
+     * Description of router. Can be used to provide additional context on router's
+     * purpose and expected inputs.
+     */
+    description?: string;
+
+    name?: string;
+
+    /**
+     * List of routes.
+     */
+    routes?: Array<RouteListItem>;
+  }
+
+  export interface UpsertSplitConfig {
+    name?: string;
+
+    printPageSplitConfig?: UpsertSplitConfig.PrintPageSplitConfig;
+
+    semanticPageSplitConfig?: UpsertSplitConfig.SemanticPageSplitConfig;
+
+    splitType?: string;
+  }
+
+  export namespace UpsertSplitConfig {
+    export interface PrintPageSplitConfig {
+      /**
+       * The unique ID of the action type configuration you want to use for this action.
+       */
+      nextActionTypeConfigID?: string;
+    }
+
+    export interface SemanticPageSplitConfig {
+      itemClasses?: Array<ActionTypeConfigsAPI.SplitConfigSemanticPageItemClass>;
+    }
+  }
+
+  export interface UpsertJoinConfig {
+    /**
+     * The type of join to perform.
+     */
+    joinType?: 'standard';
+
+    name?: string;
+
+    /**
+     * Unique identifier of action type config to run after join.
+     */
+    nextActionTypeConfigID?: string;
+
+    /**
+     * Desired output structure defined in standard JSON Schema convention.
+     */
+    outputSchema?: unknown;
+
+    /**
+     * Name of output schema object.
+     */
+    outputSchemaName?: string;
+  }
+
+  export interface UpsertEmailConfig {
+    /**
+     * Body of the email. This can be HTML, and include template variables in the form
+     * of `{{template_variable}}`. Template variables are taken from the output of the
+     * transformation.
+     */
+    body?: string;
+
+    /**
+     * Email address to send the email from.
+     */
+    fromEmail?: string;
+
+    /**
+     * Name of the sender.
+     */
+    fromName?: string;
+
+    name?: string;
+
+    /**
+     * Subject of the email. This can include template variables in the form of
+     * `{{template_variable}}`. Template variables are taken from the output of the
+     * transformation.
+     */
+    subject?: string;
+
+    /**
+     * Email address to send the email to.
+     */
+    toEmail?: string;
+
+    /**
+     * Name of the recipient.
+     */
+    toName?: string;
+  }
 }
 
 export interface ActionTypeConfigListParams {

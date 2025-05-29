@@ -38,8 +38,8 @@ describe('resource actionTypeConfigs', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('update: only required params', async () => {
-    const responsePromise = client.alpha.actionTypeConfigs.update('actionTypeConfigID', { body: {} });
+  test.skip('update', async () => {
+    const responsePromise = client.alpha.actionTypeConfigs.update('actionTypeConfigID', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -47,11 +47,6 @@ describe('resource actionTypeConfigs', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('update: required and optional params', async () => {
-    const response = await client.alpha.actionTypeConfigs.update('actionTypeConfigID', { body: {} });
   });
 
   // skipped: tests are disabled for the time being
