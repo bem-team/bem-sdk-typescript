@@ -1,6 +1,6 @@
 {
-  "name": "bem",
-  "version": "3.0.0",
+  "name": "bem-ai",
+  "version": "3.0.1",
   "description": "The official TypeScript library for the Bem SDK API",
   "author": "Bem SDK <>",
   "types": "dist/index.d.ts",
@@ -50,8 +50,8 @@
     "synckit": "0.8.8"
   },
   "imports": {
-    "bem": ".",
-    "bem/*": "./src/*"
+    "bem-ai": ".",
+    "bem-ai/*": "./src/*"
   },
   "exports": {
     ".": {
