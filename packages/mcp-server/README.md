@@ -10,7 +10,7 @@ You can run the MCP Server directly via `npx`:
 
 ```sh
 export BEM_SDK_API_KEY="My API Key"
-export BEM_SDK_ENVIRONMENT="production"
+export BEM_SDK_ENVIRONMENT="sandbox"
 npx -y bem-ai-mcp@latest
 ```
 
@@ -29,7 +29,7 @@ For clients with a configuration JSON, it might look something like this:
       "args": ["-y", "bem-ai-mcp", "--client=claude", "--tools=dynamic"],
       "env": {
         "BEM_SDK_API_KEY": "My API Key",
-        "BEM_SDK_ENVIRONMENT": "production"
+        "BEM_SDK_ENVIRONMENT": "sandbox"
       }
     }
   }
