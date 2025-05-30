@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.3 (2025-05-30)
+
+Full Changelog: [v3.0.2...v3.0.3](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.2...v3.0.3)
+
+### Bug Fixes
+
+* compat with more runtimes ([04a4f21](https://github.com/bem-team/bem-sdk-typescript/commit/04a4f21f416d5d2e9356ed363c6c11ba145c1cfc))
+
 ## 3.0.2 (2025-05-29)
 
 Full Changelog: [v3.0.1...v3.0.2](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.1...v3.0.2)
