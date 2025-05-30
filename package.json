@@ -1,6 +1,6 @@
 {
   "name": "bem-ai",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "The official TypeScript library for the Bem SDK API",
   "author": "Bem SDK <>",
   "types": "dist/index.d.ts",
