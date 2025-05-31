@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.4 (2025-05-31)
+
+Full Changelog: [v3.0.3...v3.0.4](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.3...v3.0.4)
+
+### Chores
+
+* **deps:** bump eslint-plugin-prettier ([3060078](https://github.com/bem-team/bem-sdk-typescript/commit/306007808ac2f09cfdac8a26d90a87946aed3a92))
+* **internal:** update jest config ([e886a12](https://github.com/bem-team/bem-sdk-typescript/commit/e886a124e6568acf298673cacb6494498d243c19))
+
 ## 3.0.3 (2025-05-30)
 
 Full Changelog: [v3.0.2...v3.0.3](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.2...v3.0.3)
