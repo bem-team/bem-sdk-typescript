@@ -19,7 +19,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'bem_ai_api',
-    version: '3.0.3',
+    version: '3.1.0',
   },
   {
     capabilities: {
@@ -100,15 +100,7 @@ export async function executeHandler(
   if (options.validJson && args) {
     args = parseEmbeddedJSON(args, tool.inputSchema);
   }
-  const result = await handler(client, args || {});
-  return {
-    content: [
-      {
-        type: 'text',
-        text: JSON.stringify(result, null, 2),
-      },
-    ],
-  };
+  return await handler(client, args || {});
 }
 
 export const readEnv = (env: string): string | undefined => {
