@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.1.0 (2025-06-07)
+
+Full Changelog: [v3.0.3...v3.1.0](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.3...v3.1.0)
+
+### Features
+
+* **mcp:** implement support for binary responses ([ba97acb](https://github.com/bem-team/bem-sdk-typescript/commit/ba97acb06e2713f03cf425adbdec8c2d467cde09))
+
+
+### Chores
+
+* adjust eslint.config.mjs ignore pattern ([8700d02](https://github.com/bem-team/bem-sdk-typescript/commit/8700d022d05d840db8b003a864c333343939e46a))
+* **deps:** bump eslint-plugin-prettier ([3060078](https://github.com/bem-team/bem-sdk-typescript/commit/306007808ac2f09cfdac8a26d90a87946aed3a92))
+* **docs:** use top-level-await in example snippets ([c75950f](https://github.com/bem-team/bem-sdk-typescript/commit/c75950f9ac5b04c924d328e62ca7ccdcd82afadb))
+* **internal:** fix readablestream types in node 20 ([47f329a](https://github.com/bem-team/bem-sdk-typescript/commit/47f329a08efb4ff0aba2793e46f0f90efc4726b9))
+* **internal:** update jest config ([e886a12](https://github.com/bem-team/bem-sdk-typescript/commit/e886a124e6568acf298673cacb6494498d243c19))
+
 ## 3.0.3 (2025-05-30)
 
 Full Changelog: [v3.0.2...v3.0.3](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.2...v3.0.3)
