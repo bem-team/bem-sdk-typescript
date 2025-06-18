@@ -1,6 +1,6 @@
 # Bem SDK TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/bem-ai.svg)](https://npmjs.org/package/bem-ai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/bem-ai)
+[![NPM version](<https://img.shields.io/npm/v/bem-ai.svg?label=npm%20(stable)>)](https://npmjs.org/package/bem-ai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/bem-ai)
 
 This library provides convenient access to the Bem SDK REST API from server-side TypeScript or JavaScript.
 
