@@ -1,5 +1,37 @@
 # Changelog
 
+## 3.1.0 (2025-06-21)
+
+Full Changelog: [v3.0.3...v3.1.0](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.3...v3.1.0)
+
+### Features
+
+* **client:** add support for endpoint-specific base URLs ([990a58a](https://github.com/bem-team/bem-sdk-typescript/commit/990a58a19806153e7bee48bfca5dd16614770faf))
+* **mcp:** implement support for binary responses ([ba97acb](https://github.com/bem-team/bem-sdk-typescript/commit/ba97acb06e2713f03cf425adbdec8c2d467cde09))
+* **mcp:** set X-Stainless-MCP header ([74f3001](https://github.com/bem-team/bem-sdk-typescript/commit/74f3001bf00ecbf8a046d5896759c6fdbb2eeae5))
+
+
+### Bug Fixes
+
+* **client:** explicitly copy fetch in withOptions ([19f64e0](https://github.com/bem-team/bem-sdk-typescript/commit/19f64e0d00cdab5a011a5b9661a9d522bd48d63a))
+* publish script — handle NPM errors correctly ([43797b4](https://github.com/bem-team/bem-sdk-typescript/commit/43797b41782573645d854dfe22b8a1957c1263b1))
+
+
+### Chores
+
+* adjust eslint.config.mjs ignore pattern ([8700d02](https://github.com/bem-team/bem-sdk-typescript/commit/8700d022d05d840db8b003a864c333343939e46a))
+* avoid type error in certain environments ([5f8bddd](https://github.com/bem-team/bem-sdk-typescript/commit/5f8bdddb34f845a98e1e9a460241245f63f25edc))
+* **ci:** enable for pull requests ([ca5e404](https://github.com/bem-team/bem-sdk-typescript/commit/ca5e404efea17bf331b3751a8485fe4d8177cbf8))
+* **client:** refactor imports ([769e531](https://github.com/bem-team/bem-sdk-typescript/commit/769e531f14f3c98d49d33763f2563b91895dca60))
+* **deps:** bump eslint-plugin-prettier ([3060078](https://github.com/bem-team/bem-sdk-typescript/commit/306007808ac2f09cfdac8a26d90a87946aed3a92))
+* **docs:** use top-level-await in example snippets ([c75950f](https://github.com/bem-team/bem-sdk-typescript/commit/c75950f9ac5b04c924d328e62ca7ccdcd82afadb))
+* **internal:** add pure annotations, make base APIResource abstract ([f36d1bd](https://github.com/bem-team/bem-sdk-typescript/commit/f36d1bd3588215bf46d08af1631ffd8f91b6df51))
+* **internal:** fix readablestream types in node 20 ([47f329a](https://github.com/bem-team/bem-sdk-typescript/commit/47f329a08efb4ff0aba2793e46f0f90efc4726b9))
+* **internal:** update jest config ([e886a12](https://github.com/bem-team/bem-sdk-typescript/commit/e886a124e6568acf298673cacb6494498d243c19))
+* **mcp:** provides high-level initMcpServer function and exports known clients ([083831f](https://github.com/bem-team/bem-sdk-typescript/commit/083831f26d93b6309749a68286f3b689c2a9f466))
+* **readme:** update badges ([ce7ad43](https://github.com/bem-team/bem-sdk-typescript/commit/ce7ad43298026691d56e0ebb7ae9231989666751))
+* **readme:** use better example snippet for undocumented params ([af9aa8b](https://github.com/bem-team/bem-sdk-typescript/commit/af9aa8bfd5dd5bde8e71b1a2b7ec75ea4384b990))
+
 ## 3.0.3 (2025-05-30)
 
 Full Changelog: [v3.0.2...v3.0.3](https://github.com/bem-team/bem-sdk-typescript/compare/v3.0.2...v3.0.3)

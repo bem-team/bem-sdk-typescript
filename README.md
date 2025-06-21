@@ -1,6 +1,6 @@
 # Bem SDK TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/bem-ai.svg)](https://npmjs.org/package/bem-ai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/bem-ai)
+[![NPM version](<https://img.shields.io/npm/v/bem-ai.svg?label=npm%20(stable)>)](https://npmjs.org/package/bem-ai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/bem-ai)
 
 This library provides convenient access to the Bem SDK REST API from server-side TypeScript or JavaScript.
 
@@ -27,11 +27,7 @@ const client = new BemSDK({
   environment: 'sandbox', // defaults to 'production'
 });
 
-async function main() {
-  const actionTypeConfig = await client.actionTypeConfigs.create({ body: { actionType: 'transform' } });
-}
-
-main();
+const actionTypeConfig = await client.actionTypeConfigs.create({ body: { actionType: 'transform' } });
 ```
 
 ### Request & Response types
@@ -47,12 +43,8 @@ const client = new BemSDK({
   environment: 'sandbox', // defaults to 'production'
 });
 
-async function main() {
-  const params: BemSDK.ActionTypeConfigCreateParams = { body: { actionType: 'transform' } };
-  const actionTypeConfig: BemSDK.ActionTypeConfig = await client.actionTypeConfigs.create(params);
-}
-
-main();
+const params: BemSDK.ActionTypeConfigCreateParams = { body: { actionType: 'transform' } };
+const actionTypeConfig: BemSDK.ActionTypeConfig = await client.actionTypeConfigs.create(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -65,21 +57,17 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const actionTypeConfig = await client.actionTypeConfigs
-    .create({ body: { actionType: 'transform' } })
-    .catch(async (err) => {
-      if (err instanceof BemSDK.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
-}
-
-main();
+const actionTypeConfig = await client.actionTypeConfigs
+  .create({ body: { actionType: 'transform' } })
+  .catch(async (err) => {
+    if (err instanceof BemSDK.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -239,9 +227,8 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.foo.create({
-  foo: 'my_param',
-  bar: 12,
+client.actionTypeConfigs.create({
+  // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
 });
