@@ -30,8 +30,8 @@ export const tool: Tool = {
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {
   const { actionTypeConfigID, ...body } = args as any;
-  await client.actionTypeConfigs.delete(actionTypeConfigID);
-  return asTextContentResult('Successful tool call');
+  const response = await client.actionTypeConfigs.delete(actionTypeConfigID).asResponse();
+  return asTextContentResult(await response.text());
 };
 
 export default { metadata, tool, handler };

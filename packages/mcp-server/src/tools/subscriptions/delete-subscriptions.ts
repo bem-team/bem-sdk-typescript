@@ -30,8 +30,8 @@ export const tool: Tool = {
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {
   const { subscriptionID, ...body } = args as any;
-  await client.subscriptions.delete(subscriptionID);
-  return asTextContentResult('Successful tool call');
+  const response = await client.subscriptions.delete(subscriptionID).asResponse();
+  return asTextContentResult(await response.text());
 };
 
 export default { metadata, tool, handler };
