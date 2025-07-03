@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from 'bem-ai-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../';
 import BemSDK from 'bem-ai';
@@ -68,9 +70,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: BemSDK, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.events.list(body);
+  return asTextContentResult(await client.events.list(body));
 };
 
 export default { metadata, tool, handler };
