@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from 'bem-ai-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../';
 import BemSDK from 'bem-ai';
@@ -15,7 +17,8 @@ export const metadata: Metadata = {
 
 export const tool: Tool = {
   name: 'create_actions',
-  description: 'Create a batch of Actions',
+  description:
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCreate a batch of Actions",
   inputSchema: {
     type: 'object',
     anyOf: [
@@ -266,9 +269,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: BemSDK, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.actions.create(body);
+  return asTextContentResult(await client.actions.create(body));
 };
 
 export default { metadata, tool, handler };
