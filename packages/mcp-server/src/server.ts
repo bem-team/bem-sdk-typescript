@@ -28,11 +28,7 @@ export const server = new McpServer(
     name: 'bem_ai_api',
     version: '3.0.3',
   },
-  {
-    capabilities: {
-      tools: {},
-    },
-  },
+  { capabilities: { tools: {} } },
 );
 
 /**
