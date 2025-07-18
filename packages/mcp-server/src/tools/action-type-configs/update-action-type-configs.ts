@@ -55,6 +55,7 @@ export const tool: Tool = {
             description: 'Name of output schema object.',
           },
         },
+        required: ['actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -78,6 +79,7 @@ export const tool: Tool = {
             },
           },
         },
+        required: ['actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -97,7 +99,6 @@ export const tool: Tool = {
                   'The unique ID of the action type configuration you want to use for this action.',
               },
             },
-            required: [],
           },
           semanticPageSplitConfig: {
             type: 'object',
@@ -109,12 +110,12 @@ export const tool: Tool = {
                 },
               },
             },
-            required: [],
           },
           splitType: {
             type: 'string',
           },
         },
+        required: ['actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -143,6 +144,7 @@ export const tool: Tool = {
             description: 'Name of output schema object.',
           },
         },
+        required: ['actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -180,6 +182,7 @@ export const tool: Tool = {
             description: 'Name of the recipient.',
           },
         },
+        required: ['actionTypeConfigID'],
       },
     ],
     $defs: {
@@ -217,10 +220,8 @@ export const tool: Tool = {
                     },
                   },
                 },
-                required: [],
               },
             },
-            required: [],
           },
           regex: {
             type: 'object',
@@ -235,7 +236,6 @@ export const tool: Tool = {
                 },
               },
             },
-            required: [],
           },
         },
         required: ['name'],

@@ -44,6 +44,7 @@ export const tool: Tool = {
             type: 'string',
           },
         },
+        required: ['actions', 'actionType', 'actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -68,6 +69,7 @@ export const tool: Tool = {
             type: 'string',
           },
         },
+        required: ['actions', 'actionType', 'actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -92,6 +94,7 @@ export const tool: Tool = {
             type: 'string',
           },
         },
+        required: ['actions', 'actionType', 'actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -116,6 +119,7 @@ export const tool: Tool = {
             type: 'string',
           },
         },
+        required: ['actions', 'actionType', 'actionTypeConfigID'],
       },
       {
         type: 'object',
@@ -140,6 +144,7 @@ export const tool: Tool = {
             },
           },
         },
+        required: ['actionType', 'actionTypeConfigID'],
       },
     ],
     $defs: {
