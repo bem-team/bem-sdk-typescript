@@ -26,7 +26,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'bem_ai_api',
-    version: '3.0.3',
+    version: '3.1.0',
   },
   { capabilities: { tools: {} } },
 );

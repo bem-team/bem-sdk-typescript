@@ -1,6 +1,6 @@
 {
   "name": "bem-ai-mcp",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "The official MCP Server for the Bem SDK API",
   "author": "Bem SDK <>",
   "types": "dist/index.d.ts",
