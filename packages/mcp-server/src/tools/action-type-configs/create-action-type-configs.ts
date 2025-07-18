@@ -36,6 +36,7 @@ export const tool: Tool = {
             ],
           },
         },
+        required: ['body'],
       },
       {
         type: 'object',
@@ -51,6 +52,7 @@ export const tool: Tool = {
             ],
           },
         },
+        required: ['body'],
       },
       {
         type: 'object',
@@ -66,6 +68,7 @@ export const tool: Tool = {
             ],
           },
         },
+        required: ['body'],
       },
       {
         type: 'object',
@@ -81,6 +84,7 @@ export const tool: Tool = {
             ],
           },
         },
+        required: ['body'],
       },
       {
         type: 'object',
@@ -96,6 +100,7 @@ export const tool: Tool = {
             ],
           },
         },
+        required: ['body'],
       },
     ],
     $defs: {
@@ -127,7 +132,6 @@ export const tool: Tool = {
             type: 'string',
           },
         },
-        required: [],
       },
       upsert_route_config: {
         allOf: [

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'update_transformations',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nUpdates a transformation with feedback on the corrected transformation value.\n\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/update_transformation_response',\n  $defs: {\n    update_transformation_response: {\n      type: 'object',\n      properties: {\n        results: {\n          type: 'array',\n          description: 'An array of objects containing all the transformations you want to patch.',\n          items: {\n            type: 'object',\n            properties: {\n              error: {\n                type: 'string',\n                description: 'error message'\n              },\n              success: {\n                type: 'boolean'\n              },\n              transformationID: {\n                type: 'string',\n                description: 'The unique ID you use internally to refer to a transform.'\n              }\n            },\n            required: []\n          }\n        },\n        successCount: {\n          type: 'integer'\n        },\n        totalCount: {\n          type: 'integer'\n        }\n      },\n      required: []\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nUpdates a transformation with feedback on the corrected transformation value.\n\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/update_transformation_response',\n  $defs: {\n    update_transformation_response: {\n      type: 'object',\n      properties: {\n        results: {\n          type: 'array',\n          description: 'An array of objects containing all the transformations you want to patch.',\n          items: {\n            type: 'object',\n            properties: {\n              error: {\n                type: 'string',\n                description: 'error message'\n              },\n              success: {\n                type: 'boolean'\n              },\n              transformationID: {\n                type: 'string',\n                description: 'The unique ID you use internally to refer to a transform.'\n              }\n            }\n          }\n        },\n        successCount: {\n          type: 'integer'\n        },\n        totalCount: {\n          type: 'integer'\n        }\n      }\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
@@ -41,7 +41,6 @@ export const tool: Tool = {
               description: 'The unique ID you use internally to refer to a transform.',
             },
           },
-          required: [],
         },
       },
       jq_filter: {
@@ -51,6 +50,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
+    required: [],
   },
 };
 
