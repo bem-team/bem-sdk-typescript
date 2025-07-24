@@ -34,6 +34,9 @@ export const tool: Tool = {
     },
     required: ['eventID'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {

@@ -52,6 +52,7 @@ export const tool: Tool = {
     },
     required: ['actionTypeConfigID', 'name', 'type'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {

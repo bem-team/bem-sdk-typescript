@@ -68,6 +68,9 @@ export const tool: Tool = {
       },
     },
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {
