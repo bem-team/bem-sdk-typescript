@@ -125,6 +125,7 @@ export const tool: Tool = {
       },
     },
   },
+  annotations: {},
 };
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {

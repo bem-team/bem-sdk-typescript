@@ -47,6 +47,7 @@ export const tool: Tool = {
     },
     required: [],
   },
+  annotations: {},
 };
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {

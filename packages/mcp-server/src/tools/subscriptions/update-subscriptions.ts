@@ -55,6 +55,7 @@ export const tool: Tool = {
     },
     required: ['subscriptionID'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {

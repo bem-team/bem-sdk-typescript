@@ -33,6 +33,9 @@ export const tool: Tool = {
     },
     required: ['pipelineID'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: BemSDK, args: Record<string, unknown> | undefined) => {
